@@ -66,7 +66,7 @@ Starting from a high-contrast image of the car chassis, the baseplate was design
 
 ### Camera Mount
 Multiple camera mount design iterations were tested over the course of the quarter. Starting with an adjustable design, once an ideal camera angle was chosen, a sturdy rigid mount was used to provide ample camera protection.
-<p align="center"><img src="Images/basePlate.png" /></p>
+<p align="center"><img src="Images/solidMount.png" /></p>
 <p align="center"><img src="Images/adjustableMount.png" /></p>
 
 ### Jetson Nano Case
