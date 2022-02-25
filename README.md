@@ -23,6 +23,8 @@ In this class, students are tasked with programming a remote control (RC) car to
 - Expand website to include additional functions beyond emergency stop.
 
 ### Project Video
+https://user-images.githubusercontent.com/48296282/155657464-22e83d6a-a38e-4d38-88a1-f9853daaf8ed.mp4
+
 
 ## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
@@ -114,10 +116,13 @@ The ESP32 has a watchdog which trips whenever it takes longer than 200 milliseco
 ### Jetson Nano Code
 On the Jetson Nano, provided image processing and vehicle control nodes output throttle and steering topics. These topics are parsed by our ESPcomms_ROS node and formatted as a JSON string for serial passing to the ESP32.
 
-## Quarter Milestones
-### Donkey Car Deep Learning Autonomous Laps
-### ROS Autonomous Laps
-### ESP32 with E-Stop
+## Donkey Car Deep Learning Autonomous Laps
+https://user-images.githubusercontent.com/48296282/155657678-b7dbbe47-a2a7-4cd7-b7a3-5134e3d5e2b7.mp4
+
+## ROS Autonomous Laps
+https://user-images.githubusercontent.com/48296282/155658084-4c5eddea-c2ed-4278-b611-a1a722951d49.mp4
+
+## ESP32 with E-Stop
 https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
 
 ## Advice
