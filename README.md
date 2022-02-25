@@ -1,4 +1,4 @@
-# MAE/ECE 148 - Introduction to Autonomous Vehicles
+# MAE/ECE 148 - Spring 2021 Team2
 
 ## Team Members
 - Ari Cortes – ECE Senior<br>
