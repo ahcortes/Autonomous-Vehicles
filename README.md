@@ -1,5 +1,4 @@
-# 2021SpringTeam2
-From MAE/ECE 148 - Introduction to Autonomous Vehicles
+# MAE/ECE 148 - Introduction to Autonomous Vehicles
 
 ## Team Members
 - Ari Cortes – ECE Senior<br>
@@ -22,10 +21,7 @@ In this class, students are tasked with programming a remote control (RC) car to
 - Expand website to include additional functions beyond emergency stop.
 
 ### Project Video
-<iframe width="640" height="360" src="https://www.youtube.com/embed/piEWopYoukU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Project Presentation
-The project overview presentation can be found here.
 
 ## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
