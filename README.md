@@ -99,10 +99,14 @@ We decided to use JSON format because it is a well documented and a computer sci
 
 ### PWM Signal Generation
 For the servo PWM signal generated at pin 0, the command ledcWrite was used to generate a 3.3V PWM signal of varying duty cycle based on a normalized steering command between -1 and 1 from the Jetson . For a PWM frequency of 300 Hz, a 33% duty cycle was found to correspond to full left steering and 58% corresponded to full right. Visualization of this signal is provided below:
-<p align="center"><img src="Images/Servo.png" /></p>
+<p align="center">
+  <img src="Images/Servo.png" />
+</p>
 
 It was found that the ESC does not function with a fixed-frequency PWM signal. Instead, the ESC requires a 20 millisecond low period followed by a 1-2 millisecond high (3.3V) pulse. 1 millisecond high corresponds to full reverse rotation of the motor and 2 milliseconds corresponds to full forward rotation. To generate such a signal, the writeMicroseconds command from the ESP32Servo Library was used to modulate the duration of the 3.3V pulse generated at pin 4. The visualization of this signal is shown below:
-<p align="center"><img src="Images/ESC.png" /></p>
+<p align="center">
+  <img src="Images/ESC.png" />
+</p>
 
 ### Watchdog
 The ESP32 has a watchdog which trips whenever it takes longer than 200 milliseconds to receive a new command from the Jetson, which happens when the Jetson freezes or crashes. This watchdog forces the ESP32 into a backup routine where it shuts down the steering and throttle and waits 3 seconds before checking if the Jetson is back online. If the serial connection is restored and new messages are received, the ESP32 will resume normal operation, otherwise it will continue to run the backup routine.
@@ -114,7 +118,7 @@ On the Jetson Nano, provided image processing and vehicle control nodes output t
 ### Donkey Car Deep Learning Autonomous Laps
 ### ROS Autonomous Laps
 ### ESP32 with E-Stop
-<center>https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4</center>
+https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
 
 
 ## Advice
