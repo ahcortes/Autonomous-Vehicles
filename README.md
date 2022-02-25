@@ -1,4 +1,4 @@
-# MAE/ECE 148 - Spring 2021 Team2
+# MAE/ECE 148 - Spring 2021
 
 ## Team Members
 - Ari Cortes – ECE Senior<br>
@@ -21,7 +21,7 @@ In this class, students are tasked with programming a remote control (RC) car to
 - Expand website to include additional functions beyond emergency stop.
 
 ### Project Video
-
+![](Videos/overview.mp4)
 
 ## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
