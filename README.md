@@ -1,31 +1,3 @@
-# ECE148-Team02-Project
-![ECE148-Team02-Car](https://github.com/antoine0112/ECE148-Team02-Project/blob/main/Mechanical/Team2Car.jpg)
-
-As part of ECE/MAE148, Team02 developed an ESP32 vehicle control system, with robust emergency stop features and an expandable webserver-based remote control.
-Based on the DonkeyCar's electrical framework, the use of an ESP32 replaces the PCA9685 motor driver, as well as the remote Estop relay board. 
-
-Details about the project can be found here: https://guitar.ucsd.edu/maeece148/index.php/2021SpringTeam2
-
-Usage of the ESP32 provides multiple benefits:
-
-- Using a standard USB cable to both power and communicate with serial between the Jetson and ESP32 simplifies wiring. 
-- Wifi access point capabilities of the ESP32 enable long range, multi-device access.
-- The ESP32's dual core allows for an always-on webserver on one core, with a watchdog monitored motor driver on the other, providing high-speed and robust processing.
-
-Code for flashing the ESP32 can be found under nodeMCU-32S-DualCore/src/main.cpp .
-We also recommend using Platform.io for developing on the ESP32, which helps in flashing the webserver Javascript code to the ESP32. 
-The Javascript code is found under nodeMCU-32S-DualCore/data/ . 
-Configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters.
-
-An example for reading and sending JSON strings through serial can be found under scripts. 
-These existing scripts subscribe to ROS /throttle and /steering topics, packaging and sending them over Serial.
-
-This repository is set up to be easily git-cloned as a ROS package. 
-Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary.
-
-Also included under mechanical/ are CAD files for camera mounts, base plates, and protective walls which we used on our car. Feel free to alter and use these files.
-
-
 # 2021SpringTeam2
 From MAE/ECE 148 - Introduction to Autonomous Vehicles
 
@@ -53,11 +25,9 @@ In this class, students are tasked with programming a remote control (RC) car to
 ### Project Presentation
 The project overview presentation can be found here.
 
-## Hardware
-<p align="center"><img src="Images/Cooler Shot.jpg" /></p>
-
-### Mechanical Design
+## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
+<p align="center"><img src="Images/Cooler Shot.jpg" /></p>
 
 ### Baseplate
 Starting from a high-contrast image of the car chassis, the baseplate was designed to conform to the existing body shape of the RC car. A central slot allows for easy wire passthrough for cameras and circuitry. A reversible design allows for ease of electrical debugging, and once that's working, simply flipping over the plate protects the electronics from collisions.
@@ -68,10 +38,7 @@ Multiple camera mount design iterations were tested over the course of the quart
 <p align="center"><img src="Images/adjustableMount.png" /></p>
 <p align="center"><img src="Images/solidMount.png" /></p>
 
-### Jetson Nano Case
-Based on a Thingiverse design, mounting holes were added for fixing the case to the baseplate.
-
-### Electrical Design
+## Electrical Design
 The car's electrical assembly consists of eleven main components:
 
 1. Jetson Nano – The single board computer (SBC) in charge of controlling the remote control car.
@@ -91,15 +58,21 @@ The ESP32 (component 9* in the new diagram) replaces components 9, 10, and 11. T
 <p align="center"><img src="Images/Team2_ESP32_WiringDiagram.png" /></p>
 
 ## Software
-This Code was written using using VSCode and the PlatformIO extension for use on the ESP32-DevKitC micro controller. Further project details and video demostration can be found here: [ESP32 Web Server Project](https://docs.google.com/document/d/1h9dRktVf6lAae34t0Z2zWiOfpSByz_bvqmT_pmIQF1w/edit#)
+This Code was written using VSCode and the PlatformIO extension for use on the ESP32-DevKitC micro controller. Code for flashing the ESP32 can be found under nodeMCU-32S-DualCore/src/main.cpp .
+We also recommend using Platform.io for developing on the ESP32, which helps in flashing the webserver Javascript code to the ESP32. 
+The Javascript code is found under nodeMCU-32S-DualCore/data/ . 
+Configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters.
 
-### Data Folder
-Contains all of the HTML, JavaScripts, and CSS files needed to make the webserver function
+An example for reading and sending JSON strings through serial can be found under scripts. 
+These existing scripts subscribe to ROS /throttle and /steering topics, packaging and sending them over Serial.
 
-### Src Folder
-Contains all of the C++ files need to handle comunications between the Jetson Nano, ESP
+This repository is set up to be easily git-cloned as a ROS package. 
+Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary.
 
-### ESP32 (LOLIN32) Code
+Also included under mechanical/ are CAD files for camera mounts, base plates, and protective walls which we used on our car. Feel free to alter and use these files.
+
+Further project details and video demostration can be found here: [ESP32 Web Server Project](https://docs.google.com/document/d/1h9dRktVf6lAae34t0Z2zWiOfpSByz_bvqmT_pmIQF1w/edit#)
+
 ### Website Code
 The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push the server data onto the ESP32, you need to store the website code in a folder named data and upload a filesystem image via platformio.
 
@@ -145,7 +118,7 @@ RQT Graph T2.png
 - Build to Crash - No matter how carefully you drive, you will probably crash a lot! A lot of collisions occur between cars and are often not your fault. The best way to prepare for this is to ensure your mechanical parts are beefy and electrical components are covered.
 - Get Driving ASAP - Training a deep learning model at the tent track was a particularly difficult task due to the constantly changing lighting conditions. It was critical to start training early to ensure there was enough time to work out any kinks and develop a robust model. Listen to Professor Silberman and send your parts out to be manufactured in the first week!
 
-## Future Suggestions for ESP32 Use
+## Future Suggestions for ESP32
 - Expanding ESP32 Website Functionality - Possible functions to add to the website include live calibration of steering and throttle, live color filter adjustment, and live PID controller tuning.
 - Creating Class for DonkeyCar Implementation - Similarly to how the ESPcomms_ROS node was added to send steering and throttle controls over serial for the ROS framework, an ESP32 class can be added to the DonkeyCar steering and throttle code to send commands to the ESP32 over serial based on inputs from the driver or AI model.
 - We recommend the WEMOS ESP32 (Rather than LOLIN) board, which goes into flashing mode only when you hold a button, rather than always looking to download code through serial.
