@@ -9,9 +9,7 @@
 
 ## Project Overview
 In this class, students are tasked with programming a remote control (RC) car to navigate a track autonomously. This is first accomplished by using deep learning to train an artificial intelligence (AI) model with the Donkey Car framework, and then tackled using Robot Operating System (ROS) to implement image processing and lane-following algorithms. In both cases, training and tuning result in a lot of eccentric behavior and crashes, so an emergency stop is implemented to minimize accidents. Currently, a relay controlled by a wireless clicker disables the PCA9685 pulse-width modulation (PWM) board, stopping steering and throttle commands from reaching the servo and motor. This assembly is not ideal because it is bulky, requires a lot of jumper wires, and causes the car to coast to a stop rather than brake. The goal of this project is to replace the relay and PWM board assembly with a single ESP32 wi-fi capable microcontroller. The ESP32 will generate PWM signals to control the servo and motor and will receive emergency stop commands through wi-fi from a user's phone or computer.
-<p align="center">
-  <img src="Images/Overview Pic.png" />
-</p>
+<p align="center"><img src="Images/Overview Pic.png" /></p>
 
 ### Must Haves
 - ESP32 generates PWM signals based on commands from Jetson Nano to control the servo and motor.
@@ -27,16 +25,13 @@ https://user-images.githubusercontent.com/48296282/155657464-22e83d6a-a38e-4d38-
 
 
 ## Mechanical Design
-The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
-<p align="center">
-  <img src="Images/Cooler Shot.jpg" />
-</p>
+The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case. Included under mechanical/ are CAD files for camera mounts, base plates, and protective walls which we used on our car. Feel free to alter and use these files.
+
+<p align="center"><img src="Images/Cooler Shot.jpg" /></p>
 
 ### Baseplate
 Starting from a high-contrast image of the car chassis, the baseplate was designed to conform to the existing body shape of the RC car. A central slot allows for easy wire passthrough for cameras and circuitry. A reversible design allows for ease of electrical debugging, and once that's working, simply flipping over the plate protects the electronics from collisions.
-<p align="center">
-  <img src="Images/basePlate.png" />
-</p>
+<p align="center"><img src="Images/basePlate.png" /></p>
 
 ### Camera Mount
 Multiple camera mount design iterations were tested over the course of the quarter. Starting with an adjustable design, once an ideal camera angle was chosen, a sturdy rigid mount was used to provide ample camera protection.
@@ -68,6 +63,7 @@ The ESP32 (component 9* in the new diagram) replaces components 9, 10, and 11. T
 This Code was written using VSCode and the PlatformIO extension for use on the ESP32-DevKitC micro controller. Code for flashing the ESP32 can be found under nodeMCU-32S-DualCore/src/main.cpp .
 We also recommend using Platform.io for developing on the ESP32, which helps in flashing the webserver Javascript code to the ESP32. 
 The Javascript code is found under nodeMCU-32S-DualCore/data/ . 
+
 Configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters.
 
 An example for reading and sending JSON strings through serial can be found under scripts. 
@@ -76,9 +72,7 @@ These existing scripts subscribe to ROS /throttle and /steering topics, packagin
 This repository is set up to be easily git-cloned as a ROS package. 
 Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary.
 
-Also included under mechanical/ are CAD files for camera mounts, base plates, and protective walls which we used on our car. Feel free to alter and use these files.
-
-Further project details and video demostration can be found here: [ESP32 Web Server Project](https://docs.google.com/document/d/1h9dRktVf6lAae34t0Z2zWiOfpSByz_bvqmT_pmIQF1w/edit#)
+<p align="center"><img src="Images/flowChart.jpg" /></p>
 
 ### Website Code
 The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push the server data onto the ESP32, you need to store the website code in a folder named data and upload a filesystem image via platformio.
