@@ -60,17 +60,9 @@ The ESP32 (component 9* in the new diagram) replaces components 9, 10, and 11. T
 <p align="center"><img src="Images/Team2_ESP32_WiringDiagram.png" /></p>
 
 ## Software
-This Code was written using VSCode and the PlatformIO extension for use on the ESP32-DevKitC micro controller. Code for flashing the ESP32 can be found under nodeMCU-32S-DualCore/src/main.cpp .
-We also recommend using Platform.io for developing on the ESP32, which helps in flashing the webserver Javascript code to the ESP32. 
-The Javascript code is found under nodeMCU-32S-DualCore/data/ . 
+This Code was written for use on the ESP32-DevKitC micro controller. We recommend using Platform.io for developing on the ESP32, which helps in flashing the webserver data/ folder and main.cpp code onto the ESP32. Both of these items are found in the nodeMCU-32S-DualCore/ folder. Once flashed, configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters.
 
-Configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters.
-
-An example for reading and sending JSON strings through serial can be found under scripts. 
-These existing scripts subscribe to ROS /throttle and /steering topics, packaging and sending them over Serial.
-
-This repository is set up to be easily git-cloned as a ROS package. 
-Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary.
+This repository is also set up to be easily git-cloned as a ROS package. Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary. An example for reading and sending JSON strings through serial can be found under scripts. These existing scripts subscribe to ROS /throttle and /steering topics, packaging and sending them over Serial.
 
 <p align="center"><img src="Images/flowChart.jpg" /></p>
 
