@@ -62,7 +62,7 @@ The major components of the mechanical design include the baseplate, camera moun
 
 ### Baseplate
 Starting from a high-contrast image of the car chassis, the baseplate was designed to conform to the existing body shape of the RC car. A central slot allows for easy wire passthrough for cameras and circuitry. A reversible design allows for ease of electrical debugging, and once that's working, simply flipping over the plate protects the electronics from collisions.
-<p align="center"><img src="basePlate.png" /></p>
+<p align="center"><img src="Images/basePlate.png" /></p>
 
 ### Camera Mount
 Multiple camera mount design iterations were tested over the course of the quarter. Starting with an adjustable design, once an ideal camera angle was chosen, a sturdy rigid mount was used to provide ample camera protection.
