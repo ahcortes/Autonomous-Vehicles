@@ -21,10 +21,8 @@ In this class, students are tasked with programming a remote control (RC) car to
 - Expand website to include additional functions beyond emergency stop.
 
 ### Project Video
-<video width="320" height="240" controls>
-  <source src="Videos/overview.mov" type="video/mp4">
-</video>
-overview.mov
+![caption](Videos/overview.mov)
+
 ## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
 <p align="center"><img src="Images/Cooler Shot.jpg" /></p>
