@@ -125,11 +125,9 @@ https://user-images.githubusercontent.com/48296282/155658084-4c5eddea-c2ed-4278-
 ## ESP32 with E-Stop
 https://user-images.githubusercontent.com/48296282/155658390-382dc491-0541-4934-8ede-7804751b5ee2.mp4
 
-## Advice
+## Advice and Future Suggestions
 - Build to Crash - No matter how carefully you drive, you will probably crash a lot! A lot of collisions occur between cars and are often not your fault. The best way to prepare for this is to ensure your mechanical parts are beefy and electrical components are covered.
 - Get Driving ASAP - Training a deep learning model at the tent track was a particularly difficult task due to the constantly changing lighting conditions. It was critical to start training early to ensure there was enough time to work out any kinks and develop a robust model. Listen to Professor Silberman and send your parts out to be manufactured in the first week!
-
-## Future Suggestions for ESP32
 - Expanding ESP32 Website Functionality - Possible functions to add to the website include live calibration of steering and throttle, live color filter adjustment, and live PID controller tuning.
 - Creating Class for DonkeyCar Implementation - Similarly to how the ESPcomms_ROS node was added to send steering and throttle controls over serial for the ROS framework, an ESP32 class can be added to the DonkeyCar steering and throttle code to send commands to the ESP32 over serial based on inputs from the driver or AI model.
 - We recommend the WEMOS ESP32 (Rather than LOLIN) board, which goes into flashing mode only when you hold a button, rather than always looking to download code through serial.
