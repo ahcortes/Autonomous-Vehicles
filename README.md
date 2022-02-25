@@ -22,7 +22,7 @@ In this class, students are tasked with programming a remote control (RC) car to
 
 ### Project Video
 <video width="320" height="240" controls>
-  <source src="Videos/overview.mp4" type="video/mp4">
+  <source src="Videos/overview.mov" type="video/mp4">
 </video>
 
 ## Mechanical Design
