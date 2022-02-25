@@ -30,17 +30,16 @@ Also included under mechanical/ are CAD files for camera mounts, base plates, an
 From MAE/ECE 148 - Introduction to Autonomous Vehicles
 
 ## Team Members
-Ari Cortes – ECE Senior//
-Antoine Laget – CSE Senior (UCSD Extension)\\
-Kevin Lam – MAE Senior
-Jack Ringelberg – MAE Senior
+Ari Cortes – ECE Senior<br>
+Antoine Laget – CSE Senior (UCSD Extension)<br>
+Kevin Lam – MAE Senior<br>
+Jack Ringelberg – MAE Senior<br>
 Teampic team2 sp21.jpg
+<p align="center"><img src="Images/team2.jpg" /></p>
 
 ## Project Overview
 In this class, students are tasked with programming a remote control (RC) car to navigate a track autonomously. This is first accomplished by using deep learning to train an artificial intelligence (AI) model with the Donkey Car framework, and then tackled using Robot Operating System (ROS) to implement image processing and lane-following algorithms. In both cases, training and tuning result in a lot of eccentric behavior and crashes, so an emergency stop is implemented to minimize accidents. Currently, a relay controlled by a wireless clicker disables the PCA9685 pulse-width modulation (PWM) board, stopping steering and throttle commands from reaching the servo and motor. This assembly is not ideal because it is bulky, requires a lot of jumper wires, and causes the car to coast to a stop rather than brake. The goal of this project is to replace the relay and PWM board assembly with a single ESP32 wi-fi capable microcontroller. The ESP32 will generate PWM signals to control the servo and motor and will receive emergency stop commands through wi-fi from a user's phone or computer.
-
-Overview Pic Team 2 Proj.png
-Figure 1: Old and New Emergency Stop System
+<p align="center"><img src="Images/Overview Pic.png" /></p>
 
 ### Must Haves
 ESP32 generates PWM signals based on commands from Jetson Nano to control the servo and motor.
@@ -56,27 +55,22 @@ Expand website to include additional functions beyond emergency stop.
 The project overview presentation can be found here.
 
 ## Hardware
-Cooler Shot Team 2.png
-
-Figure 2: Team 2 Car
+<p align="center"><img src="Images/Cooler Shot.jpg" /></p>
 
 ### Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
 
 ### Baseplate
 Starting from a high-contrast image of the car chassis, the baseplate was designed to conform to the existing body shape of the RC car. A central slot allows for easy wire passthrough for cameras and circuitry. A reversible design allows for ease of electrical debugging, and once that's working, simply flipping over the plate protects the electronics from collisions.
-SP21 T2 Baseplate.png
-Figure 3: Baseplate Design
+<p align="center"><img src="basePlate.png" /></p>
 
 ### Camera Mount
 Multiple camera mount design iterations were tested over the course of the quarter. Starting with an adjustable design, once an ideal camera angle was chosen, a sturdy rigid mount was used to provide ample camera protection.
-Figure 4a: Final Mount Design
-Figure 4b: Adjustable Mount Design
+<p align="center"><img src="Images/basePlate.png" /></p>
+<p align="center"><img src="Images/adjustableMount.png" /></p>
 
 ### Jetson Nano Case
 Based on a Thingiverse design, mounting holes were added for fixing the case to the baseplate.
-SP21 T2 JetsonCase.png
-Figure 5: Jetson Nano Case Modified from Thingiverse Design
 
 ### Electrical Design
 The car's electrical assembly consists of eleven main components:
@@ -92,12 +86,10 @@ Brushless DC Motor – Drives the car's four wheels.
 PCA9685 Pusle-Width Modulation (PWM) Board – Receives commands from the Jetson Nano via I2C communication to control the steering and throttle. Generates PWM signals to send to the servo and to the ESC to be then sent to the motor. Also provides power for the status LED light.
 Status Light-Emitting Diode (LED) – LED light denoting enabled or disabled state of the car.
 Emergency Stop Relay – The relay is connected to a wireless remote which switches 3.3V power from the common (CO) terminal between the normally closed (NC) and normally open (NO) terminals. The disable pin (OE) of the PWM board is connected to the NC terminal, stopping generation of PWM signals when switched and therefore shutting down the steering and throttle. To denote the enabled and disabled conditions, the blue light is connected to the NC terminal of the relay and the red light is connected to the NO terminal.
-Team2 WiringDiagram.png
-Figure 6: Car Wiring Diagram with Original Hardware
+<p align="center"><img src="Images/Team2_WiringDiagram.png" /></p>
 
 The ESP32 (component 9* in the new diagram) replaces components 9, 10, and 11. The ESP32 communicates with the Jetson Nano via serial communication through a USB cable. Pin 0 and 4 of the ESP32, which are capable of generating PWM signals, are connected to the PWM inputs to the servo and ESC, respectively. The 6V power output from the ESC is connected to the servo. The servo, ESC, and ESP32 are all grounded to the Jetson.
-Team 2 ESP32 Wiring Diagram.png
-Figure 7: Car Wiring Diagram after ESP32 Implementation
+<p align="center"><img src="Images/Team2_ESP32_WiringDiagram.png" /></p>
 
 ## Software
 This Code was written using using VSCode and the PlatformIO extension for use on the ESP32-DevKitC micro controller. Further project details and video demostration can be found here: [ESP32 Web Server Project](https://docs.google.com/document/d/1h9dRktVf6lAae34t0Z2zWiOfpSByz_bvqmT_pmIQF1w/edit#)
@@ -130,15 +122,10 @@ We decided to use JSON format because it is a well documented and a computer sci
 
 ### PWM Signal Generation
 For the servo PWM signal generated at pin 0, the command ledcWrite was used to generate a 3.3V PWM signal of varying duty cycle based on a normalized steering command between -1 and 1 from the Jetson . For a PWM frequency of 300 Hz, a 33% duty cycle was found to correspond to full left steering and 58% corresponded to full right. Visualization of this signal is provided below:
+<p align="center"><img src="Images/Servo.png" /></p>
 
-Servo Signal.png
-
-  Figure 9: Servo Left and Right Steering Signal
 It was found that the ESC does not function with a fixed-frequency PWM signal. Instead, the ESC requires a 20 millisecond low period followed by a 1-2 millisecond high (3.3V) pulse. 1 millisecond high corresponds to full reverse rotation of the motor and 2 milliseconds corresponds to full forward rotation. To generate such a signal, the writeMicroseconds command from the ESP32Servo Library was used to modulate the duration of the 3.3V pulse generated at pin 4. The visualization of this signal is shown below:
-
-ESC Signal.png
-
-  Figure 10: Motor Full Reverse and Forward Signal
+<p align="center"><img src="Images/ESC.png" /></p>
 
 ### Watchdog
 The ESP32 has a watchdog which trips whenever it takes longer than 200 milliseconds to receive a new command from the Jetson, which happens when the Jetson freezes or crashes. This watchdog forces the ESP32 into a backup routine where it shuts down the steering and throttle and waits 3 seconds before checking if the Jetson is back online. If the serial connection is restored and new messages are received, the ESP32 will resume normal operation, otherwise it will continue to run the backup routine.
