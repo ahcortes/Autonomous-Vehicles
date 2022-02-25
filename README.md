@@ -119,7 +119,9 @@ On the Jetson Nano, provided image processing and vehicle control nodes output t
 ### ROS Autonomous Laps
 ### ESP32 with E-Stop
 https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
-
+<video width="320" height="240" controls>
+  <source src="https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4" type="video/mp4">
+</video>
 
 ## Advice
 - Build to Crash - No matter how carefully you drive, you will probably crash a lot! A lot of collisions occur between cars and are often not your fault. The best way to prepare for this is to ensure your mechanical parts are beefy and electrical components are covered.
