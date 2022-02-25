@@ -119,6 +119,7 @@ On the Jetson Nano, provided image processing and vehicle control nodes output t
 ### ROS Autonomous Laps
 ### ESP32 with E-Stop
 https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
+
 <video width="320" height="240" controls>
   <source src="https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4" type="video/mp4">
 </video>
