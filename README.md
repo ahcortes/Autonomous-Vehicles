@@ -120,10 +120,6 @@ On the Jetson Nano, provided image processing and vehicle control nodes output t
 ### ESP32 with E-Stop
 https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
 
-<video width="320" height="240" controls>
-  <source src="https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4" type="video/mp4">
-</video>
-
 ## Advice
 - Build to Crash - No matter how carefully you drive, you will probably crash a lot! A lot of collisions occur between cars and are often not your fault. The best way to prepare for this is to ensure your mechanical parts are beefy and electrical components are covered.
 - Get Driving ASAP - Training a deep learning model at the tent track was a particularly difficult task due to the constantly changing lighting conditions. It was critical to start training early to ensure there was enough time to work out any kinks and develop a robust model. Listen to Professor Silberman and send your parts out to be manufactured in the first week!
