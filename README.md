@@ -67,12 +67,13 @@ This repository is also set up to be easily git-cloned as a ROS package. Simply 
 <p align="center"><img src="Images/flowChart.jpg" /></p>
 
 ### Website Code
-The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push the server data onto the ESP32, you need to store the website code in a folder named data and upload a filesystem image via platformio.
+The web app should allows users to edit motor/servo calibration values and provides support for both DonkeyCar & ROS. The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push these files and default data onto the ESP32, you need to store the website code in a folder named data/ and upload a filesystem image via platformio. 
+
+https://user-images.githubusercontent.com/48296282/155665109-5618170f-bc96-4724-a412-de364de8dbe6.mp4
 
 ### Websockets and Syncronization
-Device syncronization is handled via main.cpp and server code. Whenever a button is pressed on a device, javascript sends a JSON message over serial to the esp32, and the button lights up to indicate it has been pressed. The JSON message is then deserialized and the buttons on the server are updated using the new values. The main.cpp code then sends a websocket "text" over serial to all connected devices notifying them of the change. The "text" messages are then deserialized via javascript on each device and the buttons' CSS are updated.
-Website Team 2.png
-Figure 8: Website User Interface
+The ESP32 creates its own soft access point which is used to access the web app. Each connected device is given its own websocket and each user is initialized with the most recent data. Device syncronization is handled via main.cpp and server code. Whenever a button is pressed on a device, javascript sends a JSON message over serial to the esp32, and the button lights up to indicate it has been pressed. The JSON message is then deserialized and the buttons on the server are updated using the new values. The main.cpp code then sends a websocket "text" over serial to all connected devices notifying them of the change. The "text" messages are then deserialized via javascript on each device and the buttons' are updated.
+Web sockets are then closed on user disconnects or inactivity.
 
 ### Serial Communication
 The Jetson and ESP32 use serial communication through a USB cable. The Jetson sends steering and throttle commands to the ESP32 in the form of a JSON formated message, which is a formatted string that provides a normalized throttle and steering value between -1 and 1. A typical JSON message looks like this:
