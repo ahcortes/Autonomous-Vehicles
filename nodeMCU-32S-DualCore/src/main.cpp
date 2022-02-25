@@ -27,7 +27,7 @@
 #define QUEUE_SIZE 10
 
 // WiFi Credentials
-const char *WIFI_SSID = "ESP32Test";
+const char *WIFI_SSID = "ESP32-MC";
 const char *WIFI_PASS = "jetsonucsd";
 
 // Button Component
@@ -207,6 +207,9 @@ void pwmTasks(void* param) {
             Serial.println(killed);
         }
         while(!Serial.available() && (end-begin) < 200) {end = millis();}
+        // uncomment the line bellow to run the web app without a jetson
+        // end=millis();
+        
         if(end-begin >= 200) {
             Serial.println("Enterning backup routine");
             while(1) {
