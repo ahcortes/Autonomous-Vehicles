@@ -9,7 +9,9 @@
 
 ## Project Overview
 In this class, students are tasked with programming a remote control (RC) car to navigate a track autonomously. This is first accomplished by using deep learning to train an artificial intelligence (AI) model with the Donkey Car framework, and then tackled using Robot Operating System (ROS) to implement image processing and lane-following algorithms. In both cases, training and tuning result in a lot of eccentric behavior and crashes, so an emergency stop is implemented to minimize accidents. Currently, a relay controlled by a wireless clicker disables the PCA9685 pulse-width modulation (PWM) board, stopping steering and throttle commands from reaching the servo and motor. This assembly is not ideal because it is bulky, requires a lot of jumper wires, and causes the car to coast to a stop rather than brake. The goal of this project is to replace the relay and PWM board assembly with a single ESP32 wi-fi capable microcontroller. The ESP32 will generate PWM signals to control the servo and motor and will receive emergency stop commands through wi-fi from a user's phone or computer.
-<p align="center"><img src="Images/Overview Pic.png" /></p>
+<p align="center">
+  <img src="Images/Overview Pic.png" />
+</p>
 
 ### Must Haves
 - ESP32 generates PWM signals based on commands from Jetson Nano to control the servo and motor.
@@ -21,22 +23,25 @@ In this class, students are tasked with programming a remote control (RC) car to
 - Expand website to include additional functions beyond emergency stop.
 
 ### Project Video
-<video width="320" height="240" controls>
-  <source src="estop.mp4" type="video/mp4">
-</video>
 
 ## Mechanical Design
 The major components of the mechanical design include the baseplate, camera mount, and Jetson Nano case.
-<p align="center"><img src="Images/Cooler Shot.jpg" /></p>
+<p align="center">
+  <img src="Images/Cooler Shot.jpg" />
+</p>
 
 ### Baseplate
 Starting from a high-contrast image of the car chassis, the baseplate was designed to conform to the existing body shape of the RC car. A central slot allows for easy wire passthrough for cameras and circuitry. A reversible design allows for ease of electrical debugging, and once that's working, simply flipping over the plate protects the electronics from collisions.
-<p align="center"><img src="Images/basePlate.png" /></p>
+<p align="center">
+  <img src="Images/basePlate.png" />
+</p>
 
 ### Camera Mount
 Multiple camera mount design iterations were tested over the course of the quarter. Starting with an adjustable design, once an ideal camera angle was chosen, a sturdy rigid mount was used to provide ample camera protection.
-<p align="center"><img src="Images/adjustableMount.png" /></p>
-<p align="center"><img src="Images/solidMount.png" /></p>
+<p align="center">
+  <img src="Images/adjustableMount.png" />
+  <img src="Images/solidMount.png" />
+</p>
 
 ## Electrical Design
 The car's electrical assembly consists of eleven main components:
@@ -109,8 +114,9 @@ On the Jetson Nano, provided image processing and vehicle control nodes output t
 ### Donkey Car Deep Learning Autonomous Laps
 ### ROS Autonomous Laps
 ### ESP32 with E-Stop
-https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
-
+<p align="center">
+  https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
+</P>
 
 
 ## Advice
