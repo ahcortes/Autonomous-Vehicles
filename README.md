@@ -123,7 +123,7 @@ https://user-images.githubusercontent.com/48296282/155657678-b7dbbe47-a2a7-4cd7-
 https://user-images.githubusercontent.com/48296282/155658084-4c5eddea-c2ed-4278-b611-a1a722951d49.mp4
 
 ## ESP32 with E-Stop
-https://user-images.githubusercontent.com/48296282/155655447-41f78b3c-2787-4532-a605-aa5ceb7c741b.mp4
+https://user-images.githubusercontent.com/48296282/155658390-382dc491-0541-4934-8ede-7804751b5ee2.mp4
 
 ## Advice
 - Build to Crash - No matter how carefully you drive, you will probably crash a lot! A lot of collisions occur between cars and are often not your fault. The best way to prepare for this is to ensure your mechanical parts are beefy and electrical components are covered.
