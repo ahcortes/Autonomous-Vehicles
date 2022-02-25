@@ -66,7 +66,7 @@ This repository is also set up to be easily git-cloned as a ROS package. Simply 
 
 <p align="center"><img src="Images/flowChart.jpg" /></p>
 
-### Website Code
+### Mobile Web App 
 The web app should allows users to edit motor/servo calibration values and provides support for both DonkeyCar & ROS. The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push these files and default data onto the ESP32, you need to store the website code in a folder named data/ and upload a filesystem image via platformio. 
 
 https://user-images.githubusercontent.com/48296282/155665109-5618170f-bc96-4724-a412-de364de8dbe6.mp4
