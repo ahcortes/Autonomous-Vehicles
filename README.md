@@ -60,14 +60,14 @@ The ESP32 (component 9* in the new diagram) replaces components 9, 10, and 11. T
 <p align="center"><img src="Images/Team2_ESP32_WiringDiagram.png" /></p>
 
 ## Software
-This Code was written for use on the ESP32-DevKitC micro controller. We recommend using PlatformIO for developing on the ESP32, which helps in flashing the webserver data/ folder and main.cpp code onto the ESP32. Linux users may need to add themselves to their dialout group before proceeding. In PlatformIO, open the nodeMCU-32S-DualCore/ project folder and say yes to all VSCode configuration prompts. Then under Project Tasks/nodemcu-32s/Platform, click on Build Filessystem Image to updload the web app code. Then at the bottom blue bar of vs code click on the check mark to compile main.cpp and the right-arrow to push it onto the ESP32. Once flashed, configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters in main.cpp.
+This Code was written using VSCode on Windows for use with the ESP32-DevKitC micro controller. We recommend using PlatformIO for developing on the ESP32, which helps in flashing the webserver data/ folder and main.cpp code onto the ESP32. In PlatformIO Home, open the nodeMCU-32S-DualCore/ project folder and say yes to all VSCode configuration prompts. Then under Project Tasks/nodemcu-32s/Platform, click on Build Filessystem Image then Upload Filesystem Image to updload the web app code. Then at the bottom of vs code, click on the check mark to compile main.cpp and the right-arrow to push it onto the ESP32. Once flashed, configuring a new ESP32 device is simple, just change the Wifi SSID and password parameters in main.cpp.
 
 This repository is also set up to be easily git-cloned as a ROS package. Simply create a new package and clone the contents of this repository into the package folder, making sure to edit the package name as necessary. An example for reading and sending JSON strings through serial can be found under scripts. These existing scripts subscribe to ROS /throttle and /steering topics, packaging and sending them over Serial.
 
 <p align="center"><img src="Images/flowChart.jpg" /></p>
 
 ### Mobile Web App 
-The web app should allows users to edit motor/servo calibration values and provides support for both DonkeyCar & ROS. The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push these files and default data onto the ESP32, you need to store the website code in a folder named data/ and upload a filesystem image via platformio. 
+The web app allows users to edit motor/servo calibration values and provides support for both DonkeyCar & ROS. The website server code is divided into 3 parts: HTML, CSS, and JavaScript. The HTML governs the look of the site, CSS handles the layout, and JavaScript handles the button events. In order to push these files and default data onto the ESP32, you need to store the website code in a folder named data/ and upload a filesystem image via platformio. 
 
 https://user-images.githubusercontent.com/48296282/155665109-5618170f-bc96-4724-a412-de364de8dbe6.mp4
 
