@@ -1,24 +1,110 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='author' content='Ari Cortes'>
+    <meta name='description' content='ESP32-MC'>
+    <title>ESP32 remote control</title>
+    <link rel='icon' type='image/x-icon' href='tritonAI.ico'>
+    <link rel='stylesheet' href='index.css'>
+    <script src='index.js'></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="author" content="Stéphane Calderoni">
-  <meta name="description" content="ESP32 Remote Control with WebSocket">
-  <title>ESP32 remote control</title>
-  <link rel="icon" type="image/x-icon" href="triton.ico">
-  <link rel="stylesheet" href="index.css">
-  <script src="index.js"></script>
-</head>
-
-<body>
-  <div class="panel">
-    <h1>ESP32 remote control</h1>
-    <h1 id='status'>status:</h1>
-    %BUTTONS%
-  </div>
-</body>
-
+  <body>
+    <span class='header'>
+      <img src = 'tritonAI.ico'>
+      <a>TRITON AI<h6>UC San Diego AI Club</h6></a>
+      <h3>ESP32-MC</h3>
+    </span>    
+    <div id='mc'>
+      <span>
+        <p></p>
+        <p class='wide'><b>MC CALIBRATION</b></p>
+        <p class='right'><button id='resize' data-div='#mc'>−</button></p>
+      </span>
+      <span>
+        <p>Steering:</p>
+        <p class='right'>lt <input id='ltSteer' type='number' max='4'></p>
+        <p class='right'>ctr <input id='ctrSteer' type='number' max='4'></p>
+        <p class='right'>rt <input id='rtSteer' type='number' max='4'></p>
+      </span>
+      <span>
+        <p>Throttle:</p>
+        <p class='right'>min <input id='minThrot' type='number' max='4'></p>
+        <p class='right'>mid <input id='midThrot' type='number' max='4'></p>
+        <p class='right'>max <input id='maxThrot' type='number' max='4'></p>
+      </span>
+      <span>
+        <p>Heartbeat:</p>
+        <p class='right'>fq <input id='frequency' type='number' max='4'></p>
+      </span>
+      <span>
+        <p class='wide'>
+          &emsp;<button id='test' data-form='#mc input'>Test</button>
+        </p>
+        <p class='wide'>
+          <button id='save' data-form='#mc input'>Save</button>&emsp;
+        </p>
+      </span>
+    </div>
+    <div class='program'>
+      <span>
+        <p></p>
+        <p class='wide'><b id='program'>DONKEY</b></p>
+        <p class='right'>
+          <button id='switch' data-div='#donkey, #ros'>−</button>
+        </p>
+      </span>
+      <label id='donkey'>
+        <span> 
+          <P class='wide'>&emsp;T-Scalar <input id='tScalar' type='number' max='4'></p>
+          <P class='wide'>
+            <button id='scale' data-form='#tScalar'>&nbsp;Scale Throttle&nbsp;</button>
+          </P>
+        </span>
+        <span>
+          <P class='wide'>N-Records <input id='nRecords' type='number' max='4'></p>
+          <P class='wide'>
+            <button id='erase' data-form='#nRecords'>Erase Records</button>
+          </P>
+        </span>
+        <span>
+          <p ></p>
+          <p class='wide'>
+            <button id='ai' data-form='#ai'>&ensp;AI Launcher&ensp;</button>
+          </p>
+        </span>
+      </label>
+      <label id='ros' class='min'>
+        <span>
+          <p class='right'>kP:</p> 
+          <input id='kp' type='range' max='100'>
+        </span>
+        <span> 
+          <p class='right'>kI:</p> 
+          <input id='ki' type='range' max='100'>
+        </span>
+        <span>
+          <p class='right'>kD:</p> 
+          <input id='kd' type='range' max='100'>
+        </span>
+        <span>
+          <p></p>
+          <p class='wide'>
+            <button id='pid' data-form='#ros input'>Update PID</button>
+          </p>
+          <p></p>
+        </span>
+      </label>
+      <textarea readonly id='event' rows='1'></textarea>
+    </div>
+    <div>
+      <span>
+        <h3>EMERGENCY STOP</h3> 
+        <button id='eStop' data-form='#eStop'></button>
+      </span>    
+    </div>
+  </body>
 </html>

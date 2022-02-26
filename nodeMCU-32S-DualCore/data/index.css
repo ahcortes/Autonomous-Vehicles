@@ -1,67 +1,196 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  font-family: Roboto, sans-serif;
-  font-size: 12pt;
-  overflow: hidden;
+body, input, textarea, button {
+  font-family: 'Montserrat',sans-serif;
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
 }
 
 body {
-  display: grid;
-  grid-template-rows: 1fr;
-  align-items: center;
-  justify-items: center;
+  width: 360px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #091d36;
 }
 
-.panel {
-  display: grid;
-  grid-gap: 3em;
-  justify-items: center;
+div {
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  display: flex;
+  flex-direction: column;
+  background-color: #363636;
 }
 
-h1 {
-  font-size: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+div.min {
+  height: 45px;
+  overflow: hidden;
+}
+
+div.program {
+  height: 100%;
+}
+
+label.min {
+  display: none;
+}
+
+span {
+  padding: 7px 0px;
+  display: flex;
+}
+
+span.header {
+  margin: 7px 0px;
+  min-height: 60px;
+}
+
+img {
+  min-width: 60px;
+}
+
+a {
+  margin: auto 0px;
+  font-size: 27px;
+}
+
+h6 {
+  margin: 0px;
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+h3 {
+  margin: auto auto;
+}
+
+p {
+  width: 25%;
+  margin: auto 0;
+}
+
+p.right {
+  text-align: right;
+}
+
+p.wide {
+  width: 50%;
+  text-align: center;
+}
+
+input {
+  width: 40px;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(127, 127, 127);
+}
+
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=range]{
+  width: 180px;
+  height: 8px;
+  margin: auto 10px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, #70FEE8 50%, #091d36 50%);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width:16px;
+  height:16px;
+  border-radius: 8px;
+  -webkit-appearance: none;
+  background-color: #70FEE8;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  width:16px;
+  height:16px;
+  border-radius: 8px;
+  background-color: #70FEE8;
+  cursor: pointer;
+}
+  
+textarea{
+  height: 100%;
+  padding-left: 20px;
+  margin-bottom: 7px;
+  resize: none;
+  background-color: transparent;
+  line-height: 30px;
+  text-indent: -20px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 button {
-  position: relative;
-  width: 6em;
-  height: 6em;
-  border: 2px solid #000;
-  border-radius: 3em;
+  min-width: 100px;
+  padding: 7px 14px;
+  background-color: #091d36;  
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-button:after {
+
+button[value='true'], button:active {
+  background-color: #70FEE8;
+  font-weight: bolder;
+  color: #091d36;
+}
+
+@media(hover: hover) and (pointer: fine) {
+  button:hover {
+    background-color: #70FEE8;
+    font-weight: bolder;
+    color: #091d36;
+  }
+}
+
+#resize, #switch {
+  min-width: 0;
+  padding: 0;
+  background-color: transparent;  
+  font-size: 28px;
+  vertical-align: top;
+  line-height: 16px;
+  font-weight: bolder;
+  color: white;
+}
+
+#eStop {
+  position: relative;
+  width: 5em;
+  min-width: 0;
+  height: 5em;
+  border: 2px solid #000;
+  border-radius: 2.5em;
+  background-image: radial-gradient(farthest-corner at 50% 20%, #b30000 0%, #330000 100%);
+  box-shadow: 0 0.5em 1em rgba(102, 0, 0, 0.3);
+}
+
+#eStop:after {
   content: '';
   position: absolute;
   top: .3em;
-  left: 1em;
+  left: 0.9em;
   width: 60%;
   height: 40%;
   border-radius: 60%;
   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
 }
-#red_Button {
-  background-image: radial-gradient(farthest-corner at 50% 20%, #b30000 0%, #330000 100%);
-  box-shadow: 0 0.5em 1em rgba(102, 0, 0, 0.3);
-}
-#red_Button.on {
+
+#eStop[value='true'] {
   background-image: radial-gradient(farthest-corner at 50% 75%, red 0%, #990000 100%);
   box-shadow: 0 1em 1.5em rgba(255, 0, 0, 0.5);
-}
-#blue_Button {
-  background-image: radial-gradient(farthest-corner at 50% 20%, #0c00b3 0%, #030033 100%);
-  box-shadow: 0 0.5em 1em rgba(7, 0, 102, 0.3);
-}
-#blue_Button.on {
-  background-image: radial-gradient(farthest-corner at 50% 75%, rgb(25, 0, 255) 0%, #0f0099 100%);
-  box-shadow: 0 1em 1.5em rgba(17, 0, 255, 0.5);
 }
